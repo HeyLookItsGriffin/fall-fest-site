@@ -2,77 +2,306 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fall Fest 🍂</title>
-  <meta name="description" content="Join us for Fall Fest! Food, games, and sweaters.">
+  <meta name="description" content="Join us for Fall Fest! Chili cookoff, bonfire, yard games, and cozy sweaters.">
+  <link rel="canonical" href="https://heylookitsgriffin.github.io/fall-fest-site/">
+
+  <!-- Open Graph / Twitter for rich link previews -->
+  <meta property="og:title" content="Fall Fest 🍂" />
+  <meta property="og:description" content="Chili cookoff, bonfire, yard games. Join us!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://heylookitsgriffin.github.io/fall-fest-site/" />
+  <!-- Put a real image you add to the repo, e.g., /og.jpg -->
+  <meta property="og:image" content="https://heylookitsgriffin.github.io/fall-fest-site/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
-    :root { --bg:#fff8ef; --card:#ffffff; --ink:#222; --muted:#666; --accent:#b45309; }
-    * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; margin: 0; color: var(--ink); background: var(--bg); }
-    header { background: #f3e8d1; padding: 2.5rem 1rem; text-align: center; border-bottom: 1px solid #e9d8a6; }
-    h1 { margin: 0 0 .25rem; font-size: clamp(1.75rem, 3.5vw, 2.75rem); }
-    .sub { color: var(--muted); margin: 0; }
-    main { max-width: 820px; margin: 0 auto; padding: 1.25rem; }
-    .card { background: var(--card); border: 1px solid #eee; border-radius: 14px; padding: 1rem 1.25rem; margin: 1rem 0; }
-    .button { display:inline-block; padding:.75rem 1rem; border-radius:10px; border:1px solid #222; text-decoration:none; color:var(--ink); }
-    footer { text-align: center; color: var(--muted); padding: 2rem 1rem 3rem; }
-    ul { padding-left: 1.1rem; }
+    :root {
+      --bg: #fff8ef;
+      --panel: #ffffff;
+      --ink: #222222;
+      --muted: #6b7280;
+      --line: #eee7db;
+      --brand: #b45309; /* amber-700 */
+      --brand-ink: #78350f;
+      --accent: #d97706; /* amber-600 */
+      --ring: rgba(245, 158, 11, .25);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6; color: var(--ink); background: var(--bg);
+    }
+    a { color: var(--brand); text-decoration-thickness: .08em; text-underline-offset: .15em; }
+    a.button { display:inline-block; border:1px solid #111; padding:.8rem 1rem; border-radius:12px; text-decoration:none; color:#111; background:#fff; box-shadow: 0 1px 0 #00000010; }
+    a.button:hover { transform: translateY(-1px); }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+    .hero {
+      background: radial-gradient(1200px 600px at 80% -10%, #ffe8c5 10%, transparent 60%),
+                  radial-gradient(1200px 600px at 10% -10%, #ffd6a8 10%, transparent 60%),
+                  linear-gradient(180deg, #fff3e0 0%, #fff8ef 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-inner { padding: 3rem 0 2rem; text-align: center; }
+    .badge { display:inline-flex; align-items:center; gap:.5rem; background:#fff; border:1px solid var(--line); padding:.35rem .7rem; border-radius:999px; font-size:.9rem; color:var(--brand-ink); }
+    h1 { font-size: clamp(2rem, 4vw, 3rem); line-height:1.2; margin: .6rem 0 0; }
+    .sub { color: var(--muted); margin-top:.35rem; }
+
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .card { background: var(--panel); border:1px solid var(--line); border-radius:16px; padding:1rem 1.25rem; box-shadow:0 10px 20px -12px rgba(0,0,0,.08); }
+    .card h3 { margin:.2rem 0 .5rem; }
+
+    .section { padding: 2rem 0; }
+    .section h2 { font-size: clamp(1.25rem, 2.5vw, 1.6rem); margin: 0 0 .75rem; }
+
+    .timeline { list-style:none; padding:0; margin:0; border-left:2px solid var(--line); }
+    .timeline li { position:relative; padding: .5rem 0 .5rem 1rem; }
+    .timeline li::before { content: ""; position:absolute; left:-6px; top:1rem; width:10px; height:10px; border-radius:50%; background: var(--accent); box-shadow:0 0 0 4px var(--ring); }
     .tag { display:inline-block; background:#fff3e0; border:1px solid #fed7aa; color:#9a3412; border-radius:999px; padding:.25rem .6rem; margin-right:.35rem; font-size:.85rem; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; }
+
+    .faq details { border:1px solid var(--line); border-radius:12px; padding:.75rem 1rem; background:#fff; }
+    .faq details + details { margin-top:.5rem; }
+    .faq summary { cursor:pointer; font-weight:600; }
+
+    .footer { text-align:center; color: var(--muted); padding: 2rem 0 3rem; border-top:1px solid var(--line); }
+
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .float-leaf { position: absolute; inset:auto; opacity:.15; filter: drop-shadow(0 10px 20px rgba(0,0,0,.12)); animation: drift 18s infinite linear; }
+      .leaf-a { top: -10px; left: 5%; animation-delay: 0s; }
+      .leaf-b { top: -20px; left: 70%; animation-delay: 4s; }
+      .leaf-c { top: -15px; left: 40%; animation-delay: 8s; }
+      @keyframes drift { 0% { transform: translateY(0) rotate(0); } 100% { transform: translateY(140vh) rotate(360deg); } }
+    }
   </style>
-  <!-- Open Graph for pretty link previews -->
-  <meta property="og:title" content="Fall Fest">
-  <meta property="og:description" content="Chili cookoff, bonfire, yard games. Join us!">
 </head>
 <body>
-  <header>
-    <h1>Fall Fest 2025 🍁</h1>
-    <p class="sub">Saturday, <strong>[Your Date]</strong> · <strong>[Start–End Time]</strong> · <strong>[Address]</strong></p>
-    <p class="sub">Hosted by [Your Name]</p>
+  <!-- Adjustable event settings for countdown + calendar links -->
+  <script>
+    const EVENT = {
+      title: "Fall Fest",
+      start: "2025-10-19T15:00:00-05:00", // CHANGE ME (ISO with timezone)
+      end:   "2025-10-19T21:00:00-05:00", // CHANGE ME
+      location: "123 Maple Lane, Springfield, IL", // CHANGE ME
+      description: "Chili cookoff, bonfire, yard games. Bring a blanket and a dessert!", // CHANGE ME
+      rsvpUrl: "https://forms.gle/replace-this-with-your-form" // CHANGE ME
+    };
+  </script>
+
+  <svg class="float-leaf leaf-a" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
+  <svg class="float-leaf leaf-b" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
+  <svg class="float-leaf leaf-c" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
+
+  <header class="hero" role="banner">
+    <div class="container hero-inner">
+      <span class="badge" aria-label="Event Date and Time">
+        <span>🍁</span>
+        <span id="dateBadge">Saturday • Oct 19 • 3–9 PM</span>
+      </span>
+      <h1>Fall Fest</h1>
+      <p class="sub" id="locationLine">123 Maple Lane • Springfield, IL</p>
+      <p class="sub"><strong id="countdown">Loading…</strong> until we kick off!</p>
+      <p style="margin-top:1rem; display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap;">
+        <a class="button" id="rsvpBtn" href="#rsvp">RSVP</a>
+        <a class="button" id="gcalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+        <a class="button" id="icsBtn" href="#">Download .ics</a>
+      </p>
+    </div>
   </header>
 
-  <main>
-    <section class="card">
-      <h2>What to Expect</h2>
-      <ul>
-        <li>Apple cider, chili cookoff, and a cozy bonfire</li>
-        <li>Yard games + pumpkin carving</li>
-        <li>Bring a blanket and a dessert to share</li>
-      </ul>
-      <p>
-        <span class="tag">Family Friendly</span>
-        <span class="tag">Outdoor</span>
-        <span class="tag">Casual</span>
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>RSVP</h2>
-      <p>
-        Paste your form link below and you’re done. (Google Forms, Microsoft Forms, Tally, etc.)
-      </p>
-      <p>
-        <a class="button" href="https://forms.gle/replace-this-with-your-form" target="_blank" rel="noopener">Open RSVP Form</a>
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>Parking & Weather</h2>
+  <main class="container" id="main-content">
+    <section class="section">
       <div class="grid">
         <div class="card">
-          <h3 style="margin-top:0">Parking</h3>
-          <p>[Street parking available | Please carpool if you can]</p>
+          <h3>What to Expect</h3>
+          <ul>
+            <li>Apple cider, chili cookoff, and a cozy bonfire</li>
+            <li>Yard games + pumpkin carving</li>
+            <li>Bring a blanket and a dessert to share</li>
+          </ul>
+          <p>
+            <span class="tag">Family Friendly</span>
+            <span class="tag">Outdoor</span>
+            <span class="tag">Casual</span>
+          </p>
         </div>
         <div class="card">
-          <h3 style="margin-top:0">Weather</h3>
-          <p>Event is outdoors—bring layers!</p>
+          <h3>When & Where</h3>
+          <p><strong id="whenText">Oct 19, 3–9 PM</strong></p>
+          <p><a id="whereLink" href="#" target="_blank" rel="noopener">123 Maple Lane, Springfield, IL</a></p>
+          <p style="margin-top:.75rem">Parking: Street parking available. Please carpool if you can.</p>
+        </div>
+        <div class="card" id="rsvp">
+          <h3>RSVP</h3>
+          <p>Let us know you’re coming:</p>
+          <p><a class="button" id="rsvpPrimary" href="#" target="_blank" rel="noopener">Open RSVP Form</a></p>
+          <p class="sub">No account required. Takes ~30 seconds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Schedule</h2>
+      <ul class="timeline">
+        <li><strong>3:00 PM</strong> — Doors open, cider & snacks</li>
+        <li><strong>4:00 PM</strong> — Yard games & pumpkin carving</li>
+        <li><strong>6:00 PM</strong> — Chili cookoff tasting & voting</li>
+        <li><strong>7:30 PM</strong> — Bonfire & s’mores</li>
+        <li><strong>9:00 PM</strong> — Wrap-up</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>FAQs</h2>
+      <div class="faq">
+        <details>
+          <summary>What should I bring?</summary>
+          <p>A blanket, a dessert to share, and anything you want to roast over the fire. If you have lawn chairs, bring those too.</p>
+        </details>
+        <details>
+          <summary>Are kids and dogs welcome?</summary>
+          <p>Kids: absolutely! Dogs: friendly, leashed pups are okay outdoors.</p>
+        </details>
+        <details>
+          <summary>Weather plan?</summary>
+          <p>We’ll be outdoors. If rain is likely, we’ll set up pop-up tents. Bring layers for the evening chill.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Getting Here</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Map</h3>
+          <p class="sub">Tap to open in your maps app.</p>
+          <p><a id="openMaps" class="button" href="#" target="_blank" rel="noopener">Open in Google Maps</a></p>
+        </div>
+        <div class="card">
+          <h3>Accessibility & Notes</h3>
+          <ul>
+            <li>Driveway has 2 steps; side path is step-free</li>
+            <li>Restroom available indoors</li>
+            <li>Let us know dietary needs on the RSVP</li>
+          </ul>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    Questions? <a href="mailto:you@example.com">you@example.com</a>
+  <footer class="footer" role="contentinfo">
+    Questions? <a id="emailLink" href="mailto:you@example.com">you@example.com</a>
   </footer>
+
+  <!-- Event structured data (SEO) -->
+  <script type="application/ld+json" id="event-jsonld"></script>
+
+  <script>
+    // ——— Helper functions ———
+    const pad = n => String(n).padStart(2, '0');
+    function toGCalDate(iso) {
+      const d = new Date(iso);
+      // Convert to UTC Z format YYYYMMDDTHHmmssZ
+      return d.getUTCFullYear() + pad(d.getUTCMonth()+1) + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + 'Z';
+    }
+    function buildGoogleCalLink(ev) {
+      const base = 'https://www.google.com/calendar/render?action=TEMPLATE';
+      const text = encodeURIComponent(ev.title);
+      const details = encodeURIComponent(ev.description);
+      const location = encodeURIComponent(ev.location);
+      const dates = `${toGCalDate(ev.start)}/${toGCalDate(ev.end)}`;
+      return `${base}&text=${text}&details=${details}&location=${location}&dates=${dates}`;
+    }
+    function downloadICS(ev) {
+      // Very small ICS generator
+      function fmt(dt) {
+        const d = new Date(dt);
+        return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+'T'+pad(d.getUTCHours())+pad(d.getUTCMinutes())+pad(d.getUTCSeconds())+'Z';
+      }
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Fall Fest//EN',
+        'BEGIN:VEVENT',
+        'UID:' + (Date.now() + '@fallfest'),
+        'DTSTAMP:' + fmt(new Date().toISOString()),
+        'DTSTART:' + fmt(ev.start),
+        'DTEND:' + fmt(ev.end),
+        'SUMMARY:' + ev.title,
+        'DESCRIPTION:' + ev.description.replace(/\n/g,'\\n'),
+        'LOCATION:' + ev.location,
+        'END:VEVENT',
+        'END:VCALENDAR' 
+      ].join('\r\n');
+      const blob = new Blob([ics], {type: 'text/calendar'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'fall-fest.ics'; a.click();
+      setTimeout(()=>URL.revokeObjectURL(url), 1000);
+    }
+
+    // ——— Initialize dynamic bits ———
+    (function init() {
+      try {
+        // Date badge + when line
+        const start = new Date(EVENT.start);
+        const end = new Date(EVENT.end);
+        const dateFmt = new Intl.DateTimeFormat(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+        const timeFmt = new Intl.DateTimeFormat(undefined, { hour: 'numeric', minute: '2-digit' });
+        document.getElementById('dateBadge').textContent = `${dateFmt.format(start)} • ${timeFmt.format(start)}–${timeFmt.format(end)}`;
+        document.getElementById('whenText').textContent = `${dateFmt.format(start)}, ${timeFmt.format(start)}–${timeFmt.format(end)}`;
+
+        // Location link
+        const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(EVENT.location)}`;
+        document.getElementById('whereLink').href = maps;
+        document.getElementById('whereLink').textContent = EVENT.location;
+        document.getElementById('openMaps').href = maps;
+        document.getElementById('locationLine').textContent = EVENT.location;
+
+        // RSVP
+        document.getElementById('rsvpPrimary').href = EVENT.rsvpUrl;
+        const rsvpBtn = document.getElementById('rsvpBtn');
+        rsvpBtn.href = EVENT.rsvpUrl;
+
+        // Calendar links
+        document.getElementById('gcalBtn').href = buildGoogleCalLink(EVENT);
+        document.getElementById('icsBtn').addEventListener('click', (e)=>{ e.preventDefault(); downloadICS(EVENT); });
+
+        // Countdown
+        const countdownEl = document.getElementById('countdown');
+        function tick() {
+          const now = new Date();
+          const ms = start - now;
+          if (ms <= 0) { countdownEl.textContent = 'It\'s party time!'; return; }
+          const days = Math.floor(ms/86400000);
+          const hours = Math.floor(ms%86400000/3600000);
+          const mins = Math.floor(ms%3600000/60000);
+          countdownEl.textContent = `${days}d ${pad(hours)}h ${pad(mins)}m`;
+        }
+        tick();
+        setInterval(tick, 60000);
+
+        // Event structured data (optional for SEO)
+        const ld = {
+          '@context': 'https://schema.org',
+          '@type': 'Event',
+          name: EVENT.title,
+          startDate: new Date(EVENT.start).toISOString(),
+          endDate: new Date(EVENT.end).toISOString(),
+          eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+          location: { '@type': 'Place', name: EVENT.location, address: EVENT.location },
+          description: EVENT.description,
+          organizer: { '@type': 'Person', name: 'Host' }
+        };
+        document.getElementById('event-jsonld').textContent = JSON.stringify(ld);
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  </script>
 </body>
 </html>
