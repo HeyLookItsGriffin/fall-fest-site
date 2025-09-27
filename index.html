@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Fall Fest 🍂</title>
+  <title>Fall Fest</title>
   <meta name="description" content="Join us for Fall Fest! Chili cookoff, bonfire, yard games, and cozy sweaters.">
   <link rel="canonical" href="https://heylookitsgriffin.github.io/fall-fest-site/">
-
-  <!-- Open Graph / Twitter for rich link previews -->
+<!-- =====================================================
+SOCIAL PREVIEW / LINK CARDS (Edit og:image path!)
+===================================================== -->
   <meta property="og:title" content="Fall Fest 🍂" />
   <meta property="og:description" content="Chili cookoff, bonfire, yard games. Join us!" />
   <meta property="og:type" content="website" />
@@ -16,6 +17,10 @@
   <meta property="og:image" content="https://heylookitsgriffin.github.io/fall-fest-site/og.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- =====================================================
+GLOBAL STYLES (Colors, layout, components)
+Edit colors/spacing here for a quick theme change.
+===================================================== -->
   <style>
     :root {
       --bg: #fff8ef;
@@ -80,22 +85,33 @@
   </style>
 </head>
 <body>
-  <!-- Adjustable event settings for countdown + calendar links -->
+<!-- =====================================================
+CONFIG: EVENT SETTINGS (EDIT THESE VALUES ONLY)
+Title, start/end times (ISO with timezone), location,
+description, and RSVP form URL.
+===================================================== -->
   <script>
     const EVENT = {
-      title: "Fall Fest",
-      start: "2025-10-19T15:00:00-05:00", // CHANGE ME (ISO with timezone)
-      end:   "2025-10-19T21:00:00-05:00", // CHANGE ME
-      location: "123 Maple Lane, Springfield, IL", // CHANGE ME
-      description: "Chili cookoff, bonfire, yard games. Bring a blanket and a dessert!", // CHANGE ME
+      title: "Fall Fest 2025: The Orange Things",
+      start: "2025-10-18T11:59:59-05:00", // CHANGE ME (ISO with timezone)
+      end:   "2025-10-18T23:59:59-05:00", // CHANGE ME
+      location: "1020 Centerpoint Drive, Stevens Point, WI 54481", // CHANGE ME
+      description: "Let's go do some Orange Things this Fall Fest! I'm talking fricking going outside, looking at pumpkins, eating some of that food stuff I've heard so much about. Corn, like walking around in some corn. Frickin some other stuff, too. Orange things, man!", // CHANGE ME
       rsvpUrl: "https://forms.gle/replace-this-with-your-form" // CHANGE ME
     };
   </script>
-
+<!-- =====================================================
+DECORATIVE ELEMENTS (SVG leaves) — Optional
+Remove these <svg> blocks if you prefer a simpler look.
+===================================================== -->
   <svg class="float-leaf leaf-a" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
   <svg class="float-leaf leaf-b" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
   <svg class="float-leaf leaf-c" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
-
+<!-- =====================================================
+HERO / HEADER (date badge, title, location, countdown)
+Edit heading text if you want. Date/location are auto-filled
+from EVENT. Buttons are wired below.
+===================================================== -->
   <header class="hero" role="banner">
     <div class="container hero-inner">
       <span class="badge" aria-label="Event Date and Time">
@@ -112,28 +128,28 @@
       </p>
     </div>
   </header>
-
+<!-- =====================================================
+MAIN CONTENT
+Sections: What to Expect, When & Where, RSVP
+===================================================== -->
   <main class="container" id="main-content">
     <section class="section">
       <div class="grid">
         <div class="card">
           <h3>What to Expect</h3>
           <ul>
-            <li>Apple cider, chili cookoff, and a cozy bonfire</li>
-            <li>Yard games + pumpkin carving</li>
-            <li>Bring a blanket and a dessert to share</li>
+            <li>Home-made Apple Cider</li>
+            <li>Adventure at a Corn Maze</li>
+            <li>Pumpking Carving</li>
+            <li>Costume Party (maybe?)</li>
           </ul>
-          <p>
-            <span class="tag">Family Friendly</span>
-            <span class="tag">Outdoor</span>
-            <span class="tag">Casual</span>
-          </p>
         </div>
         <div class="card">
           <h3>When & Where</h3>
           <p><strong id="whenText">Oct 19, 3–9 PM</strong></p>
           <p><a id="whereLink" href="#" target="_blank" rel="noopener">123 Maple Lane, Springfield, IL</a></p>
-          <p style="margin-top:.75rem">Parking: Street parking available. Please carpool if you can.</p>
+          <p style="margin-top:.75rem">Parking: Street parking available.</p>
+          <p style="margin-top:.75rem">Overnight: 3 Potential sleeping houses. Please bring your own pillow/blanket/sleeping bag.</p>
         </div>
         <div class="card" id="rsvp">
           <h3>RSVP</h3>
@@ -147,11 +163,12 @@
     <section class="section">
       <h2>Schedule</h2>
       <ul class="timeline">
-        <li><strong>3:00 PM</strong> — Doors open, cider & snacks</li>
-        <li><strong>4:00 PM</strong> — Yard games & pumpkin carving</li>
-        <li><strong>6:00 PM</strong> — Chili cookoff tasting & voting</li>
-        <li><strong>7:30 PM</strong> — Bonfire & s’mores</li>
-        <li><strong>9:00 PM</strong> — Wrap-up</li>
+        <li><strong>11:59 AM</strong> — Doors open: Mingle, Chat, & Snacks</li>
+        <li><strong>12:30 PM</strong> — Heading to the ORANGE THINGS: Pumpkins, Corn Maze, Petting Zoo</li>
+        <li><strong>3:30 PM</strong> — Orange Place Closes</li>
+        <li><strong>4:00 PM</strong> — Dinner Time!</li>
+        <li><strong>5:00 PM</strong> — Pumpkin Carving</li>
+        <li><strong>6:30 PM</strong> — Chill Out, Play Orange Games, Watch Orange Movies, Etc</li>
       </ul>
     </section>
 
@@ -160,15 +177,29 @@
       <div class="faq">
         <details>
           <summary>What should I bring?</summary>
-          <p>A blanket, a dessert to share, and anything you want to roast over the fire. If you have lawn chairs, bring those too.</p>
-        </details>
-        <details>
-          <summary>Are kids and dogs welcome?</summary>
-          <p>Kids: absolutely! Dogs: friendly, leashed pups are okay outdoors.</p>
+          <p>A pillow and blanket/sleeping bag</p>
+          <p>A food for potluck dinner</p>
+          <p>A postivly Orange attitude</p>
+          <p>Like $12 to get into the pumpkin and corn place (orange)</p>
+          <p>Weather appropriate attire. Bring an umbrella just in case</p>
         </details>
         <details>
           <summary>Weather plan?</summary>
-          <p>We’ll be outdoors. If rain is likely, we’ll set up pop-up tents. Bring layers for the evening chill.</p>
+          <p>We’ll be outdoors mid day, it's fall so I imagine a light jacket is in order.</p>
+          <p>If rain is likely, we’ll play it by ear. Pack an umbrella just in case.</p>
+        </details>
+        <details>
+          <summary>Food?</summary>
+          <p>We are planning a potluck style thing. Please bring your food PRE-MADE. We don't have space for everyone to make their dish here.</p>
+          <p>You can bring an entre, a side, or a dessert. Please compare with what others have written in the Dinner sign up sheet listed at the top of the page to ensure a decent variety.</p>
+        </details>
+        <details>
+          <summary>Can I show up early?</summary>
+          <p>Griffin might be still setting up, but feel free to show up early! Just let Griffin know ahead of time please!</p>
+        </details>
+        <details>
+          <summary>Should I eat before I arrive?</summary>
+          <p>We have no formal lunch plans, so if you have a late breakfast/early lunch before arriving, that would be fine. Otherwise, I am shooting for potluck dinner around 4-4:30ish</p>
         </details>
       </div>
     </section>
@@ -184,22 +215,36 @@
         <div class="card">
           <h3>Accessibility & Notes</h3>
           <ul>
-            <li>Driveway has 2 steps; side path is step-free</li>
-            <li>Restroom available indoors</li>
-            <li>Let us know dietary needs on the RSVP</li>
+            <li>Griffin lives on the second floor. There is an elevator for those who cannot walk.</li>
+            <li>Restroom available in Griffin's appartment, but we only have the one. Do not blow it up if possible. There is a shower stationed next to the toilet if such an emergency takes place that you need to clean yourself.</li>
+            <li>If you have dietary restrictions, we can't guarantee all the food brought will meet it. To be safe, make sure the dish you bring is safe for you to eat.</li>
           </ul>
         </div>
       </div>
     </section>
   </main>
-
+<!-- =====================================================
+FOOTER (contact)
+Update your email in the link below.
+===================================================== -->
   <footer class="footer" role="contentinfo">
     Questions? <a id="emailLink" href="mailto:you@example.com">you@example.com</a>
   </footer>
 
-  <!-- Event structured data (SEO) -->
+<!-- =====================================================
+STRUCTURED DATA (JSON-LD for search engines)
+Optional. Updates automatically from EVENT above.
+===================================================== -->
   <script type="application/ld+json" id="event-jsonld"></script>
 
+
+  <!-- =====================================================
+JAVASCRIPT (helpers + initialization)
+- Calendar links
+- Countdown
+- Map links
+- Auto-fill date/location text
+===================================================== -->
   <script>
     // ——— Helper functions ———
     const pad = n => String(n).padStart(2, '0');
