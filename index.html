@@ -6,9 +6,10 @@
   <title>Fall Fest</title>
   <meta name="description" content="Join us for Fall Fest! Chili cookoff, bonfire, yard games, and cozy sweaters.">
   <link rel="canonical" href="https://heylookitsgriffin.github.io/fall-fest-site/">
-<!-- =====================================================
-SOCIAL PREVIEW / LINK CARDS (Edit og:image path!)
-===================================================== -->
+  
+  <!-- =====================================================
+       SOCIAL PREVIEW / LINK CARDS (Edit og:image path!)
+       ===================================================== -->
   <meta property="og:title" content="Fall Fest 🍂" />
   <meta property="og:description" content="Chili cookoff, bonfire, yard games. Join us!" />
   <meta property="og:type" content="website" />
@@ -18,9 +19,9 @@ SOCIAL PREVIEW / LINK CARDS (Edit og:image path!)
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- =====================================================
-GLOBAL STYLES (Colors, layout, components)
-Edit colors/spacing here for a quick theme change.
-===================================================== -->
+       GLOBAL STYLES (Colors, layout, components)
+       Edit colors/spacing here for a quick theme change.
+       ===================================================== -->
   <style>
     :root {
       --bg: #fff8ef;
@@ -85,53 +86,56 @@ Edit colors/spacing here for a quick theme change.
   </style>
 </head>
 <body>
-<!-- =====================================================
-CONFIG: EVENT SETTINGS (EDIT THESE VALUES ONLY)
-Title, start/end times (ISO with timezone), location,
-description, and RSVP form URL.
-===================================================== -->
+  <!-- =====================================================
+       CONFIG: EVENT SETTINGS (EDIT THESE VALUES ONLY)
+       Title, start/end times (ISO with timezone), location,
+       description, RSVP form URL, and potluck sheet URL.
+       ===================================================== -->
   <script>
     const EVENT = {
       title: "Fall Fest 2025: The Orange Things",
-      start: "2025-10-18T11:59:59-05:00", // CHANGE ME (ISO with timezone)
-      end:   "2025-10-18T23:59:59-05:00", // CHANGE ME
-      location: "1020 Centerpoint Drive, Stevens Point, WI 54481", // CHANGE ME
+      start: "2025-10-18T11:59:59-05:00", 
+      end:   "2025-10-18T23:59:59-05:00", 
+      location: "1020 Centerpoint Drive, Stevens Point, WI 54481", 
       description: "Let's go do some Orange Things this Fall Fest! I'm talking fricking going outside, looking at pumpkins, eating some of that food stuff I've heard so much about. Corn, like walking around in some corn. Frickin some other stuff, too. Orange things, man!", // CHANGE ME
-      rsvpUrl: "https://forms.gle/replace-this-with-your-form" // CHANGE ME
+      rsvpUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeGSOdYsJ726K-effaTZ9dGprsygMGr9MLPXEim0djhpTAuhw/viewform?usp=header",
+      potluckUrl: "https://docs.google.com/spreadsheets/d/16AqIVi1Udu5MUfiBDNgCb6jN9MV786yZOajcd6G5heg/edit?usp=sharing"
     };
   </script>
-<!-- =====================================================
-DECORATIVE ELEMENTS (SVG leaves) — Optional
-Remove these <svg> blocks if you prefer a simpler look.
-===================================================== -->
+
+  <!-- =====================================================
+       DECORATIVE ELEMENTS (SVG leaves) — Optional
+       Remove these <svg> blocks if you prefer a simpler look.
+       ===================================================== -->
   <svg class="float-leaf leaf-a" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
   <svg class="float-leaf leaf-b" width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
   <svg class="float-leaf leaf-c" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c4 0 8 3 8 8 0 6-6 10-8 12-2-2-8-6-8-12 0-5 4-8 8-8z"/></svg>
-<!-- =====================================================
-HERO / HEADER (date badge, title, location, countdown)
-Edit heading text if you want. Date/location are auto-filled
-from EVENT. Buttons are wired below.
-===================================================== -->
+
+  <!-- =====================================================
+       HERO / HEADER (date badge, title, location, countdown)
+       Buttons: RSVP, Add to Google Calendar, Potluck Sign-Up
+       ===================================================== -->
   <header class="hero" role="banner">
     <div class="container hero-inner">
       <span class="badge" aria-label="Event Date and Time">
         <span>🍁</span>
-        <span id="dateBadge">Saturday • Oct 19 • 3–9 PM</span>
+        <span id="dateBadge">Date Badge</span>
       </span>
-      <h1>Fall Fest</h1>
-      <p class="sub" id="locationLine">123 Maple Lane • Springfield, IL</p>
+      <h1>Fall Fest 2025: The Orange Things</h1>
+      <p class="sub" id="locationLine">Location Line</p>
       <p class="sub"><strong id="countdown">Loading…</strong> until we kick off!</p>
       <p style="margin-top:1rem; display:flex; gap:.5rem; justify-content:center; flex-wrap:wrap;">
         <a class="button" id="rsvpBtn" href="#rsvp">RSVP</a>
         <a class="button" id="gcalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
-        <a class="button" id="icsBtn" href="#">Download .ics</a>
+        <a class="button" id="potluckBtn" href="#" target="_blank" rel="noopener">Potluck Sign-Up</a>
       </p>
     </div>
   </header>
-<!-- =====================================================
-MAIN CONTENT
-Sections: What to Expect, When & Where, RSVP
-===================================================== -->
+
+  <!-- =====================================================
+       MAIN CONTENT
+       Sections: What to Expect, When & Where, RSVP, Potluck
+       ===================================================== -->
   <main class="container" id="main-content">
     <section class="section">
       <div class="grid">
@@ -142,20 +146,27 @@ Sections: What to Expect, When & Where, RSVP
             <li>Adventure at a Corn Maze</li>
             <li>Pumpking Carving</li>
             <li>Costume Party (maybe?)</li>
+            <li>Myserious Fire? You never know ¯\_ (ツ)_/¯</li>
           </ul>
         </div>
         <div class="card">
           <h3>When & Where</h3>
-          <p><strong id="whenText">Oct 19, 3–9 PM</strong></p>
-          <p><a id="whereLink" href="#" target="_blank" rel="noopener">123 Maple Lane, Springfield, IL</a></p>
-          <p style="margin-top:.75rem">Parking: Street parking available.</p>
-          <p style="margin-top:.75rem">Overnight: 3 Potential sleeping houses. Please bring your own pillow/blanket/sleeping bag.</p>
+          <p><strong id="whenText">When Text</strong></p>
+          <p><a id="whereLink" href="#" target="_blank" rel="noopener">Where Link</a></p>
+          <p style="margin-top:.75rem">Parking: Street parking available, free, and overnight friendly.</p>
+          <p style="margin-top:.75rem">Overnight: 3 potential sleeping houses. Please bring your own pillow/blanket/sleeping bag.</p>
         </div>
         <div class="card" id="rsvp">
           <h3>RSVP</h3>
           <p>Let us know you’re coming:</p>
           <p><a class="button" id="rsvpPrimary" href="#" target="_blank" rel="noopener">Open RSVP Form</a></p>
           <p class="sub">No account required. Takes ~30 seconds.</p>
+        </div>
+        <div class="card" id="potluck">
+          <h3>Potluck Sign-Up</h3>
+          <p>Claim a dish on the shared sheet:</p>
+          <p><a class="button" id="potluckPrimary" href="#" target="_blank" rel="noopener">Open Potluck Sheet</a></p>
+          <p class="sub">Please avoid duplicates, and dishes should be made PRIOR to the Fall Fest.</p>
         </div>
       </div>
     </section>
@@ -223,28 +234,29 @@ Sections: What to Expect, When & Where, RSVP
       </div>
     </section>
   </main>
-<!-- =====================================================
-FOOTER (contact)
-Update your email in the link below.
-===================================================== -->
-  <footer class="footer" role="contentinfo">
-    Questions? <a id="emailLink" href="mailto:you@example.com">you@example.com</a>
-  </footer>
-
-<!-- =====================================================
-STRUCTURED DATA (JSON-LD for search engines)
-Optional. Updates automatically from EVENT above.
-===================================================== -->
-  <script type="application/ld+json" id="event-jsonld"></script>
-
 
   <!-- =====================================================
-JAVASCRIPT (helpers + initialization)
-- Calendar links
-- Countdown
-- Map links
-- Auto-fill date/location text
-===================================================== -->
+       FOOTER (contact)
+       Update your email in the link below.
+       ===================================================== -->
+  <footer class="footer" role="contentinfo">
+    Questions? Text Griffin! You've got his number, you Orange little rascal!</a>
+  </footer>
+
+  <!-- =====================================================
+       STRUCTURED DATA (JSON-LD for search engines)
+       Optional. Updates automatically from EVENT above.
+       ===================================================== -->
+  <script type="application/ld+json" id="event-jsonld"></script>
+
+  <!-- =====================================================
+       JAVASCRIPT (helpers + initialization)
+       - Calendar link
+       - Countdown
+       - Map links
+       - Auto-fill date/location text
+       - RSVP & Potluck buttons
+       ===================================================== -->
   <script>
     // ——— Helper functions ———
     const pad = n => String(n).padStart(2, '0');
@@ -260,33 +272,6 @@ JAVASCRIPT (helpers + initialization)
       const location = encodeURIComponent(ev.location);
       const dates = `${toGCalDate(ev.start)}/${toGCalDate(ev.end)}`;
       return `${base}&text=${text}&details=${details}&location=${location}&dates=${dates}`;
-    }
-    function downloadICS(ev) {
-      // Very small ICS generator
-      function fmt(dt) {
-        const d = new Date(dt);
-        return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+'T'+pad(d.getUTCHours())+pad(d.getUTCMinutes())+pad(d.getUTCSeconds())+'Z';
-      }
-      const ics = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'PRODID:-//Fall Fest//EN',
-        'BEGIN:VEVENT',
-        'UID:' + (Date.now() + '@fallfest'),
-        'DTSTAMP:' + fmt(new Date().toISOString()),
-        'DTSTART:' + fmt(ev.start),
-        'DTEND:' + fmt(ev.end),
-        'SUMMARY:' + ev.title,
-        'DESCRIPTION:' + ev.description.replace(/\n/g,'\\n'),
-        'LOCATION:' + ev.location,
-        'END:VEVENT',
-        'END:VCALENDAR' 
-      ].join('\r\n');
-      const blob = new Blob([ics], {type: 'text/calendar'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = 'fall-fest.ics'; a.click();
-      setTimeout(()=>URL.revokeObjectURL(url), 1000);
     }
 
     // ——— Initialize dynamic bits ———
@@ -307,14 +292,14 @@ JAVASCRIPT (helpers + initialization)
         document.getElementById('openMaps').href = maps;
         document.getElementById('locationLine').textContent = EVENT.location;
 
-        // RSVP
+        // RSVP & Potluck
         document.getElementById('rsvpPrimary').href = EVENT.rsvpUrl;
-        const rsvpBtn = document.getElementById('rsvpBtn');
-        rsvpBtn.href = EVENT.rsvpUrl;
+        const rsvpBtn = document.getElementById('rsvpBtn'); rsvpBtn.href = EVENT.rsvpUrl;
+        document.getElementById('potluckPrimary').href = EVENT.potluckUrl;
+        const potluckBtn = document.getElementById('potluckBtn'); potluckBtn.href = EVENT.potluckUrl;
 
-        // Calendar links
+        // Calendar link
         document.getElementById('gcalBtn').href = buildGoogleCalLink(EVENT);
-        document.getElementById('icsBtn').addEventListener('click', (e)=>{ e.preventDefault(); downloadICS(EVENT); });
 
         // Countdown
         const countdownEl = document.getElementById('countdown');
